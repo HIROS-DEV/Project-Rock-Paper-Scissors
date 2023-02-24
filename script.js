@@ -1,11 +1,6 @@
-// Create getRandomNumber function that will randomly return "0" "1" "2".
-
 function getRandomNumber() {
 	return Math.floor(Math.random() * 3);
 }
-
-// Create getComputerChoice function that will randomly return either "Rock", "Paper", "Scissors"
-// If the random number will return 0, getComputerChoice will return "Rock"...
 
 function getComputerChoice() {
 	const computerShapes = getRandomNumber();
@@ -21,13 +16,14 @@ function getComputerChoice() {
 	}
 }
 
-// Create getPlayerChoice function that will return user's input(use prompt function)
 function getPlayerChoice() {
-	const playerShapes = prompt('Rock! Paper! Scissors!');
+	const playerChoice = prompt('Rock! Paper! Scissors!');
 
-	if (playerShapes === null) return;
+	if (playerChoice === null) {
+		return;
+	}
 
-	switch (playerShapes.toLowerCase()) {
+	switch (playerChoice.toLowerCase()) {
 		case 'rock':
 			return 'rock';
 		case 'paper':
@@ -39,6 +35,34 @@ function getPlayerChoice() {
 	}
 }
 
+function playRound(playerSelection, computerSelection) {
+	if (playerSelection === 'rock' && computerSelection === 'scissors') {
+		return 'You Win! Rock beats Scissors';
+	} else if (playerSelection === 'rock' && computerSelection === 'paper') {
+		return 'You Lose! Rock beats Paper';
+	} else if (playerSelection === 'rock' && computerSelection === 'rock') {
+		return 'Even! Rock evens Rock';
+	} else if (playerSelection === 'paper' && computerSelection === 'rock') {
+		return 'You Win! Paper beats Rock';
+	} else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+		return 'You Lose! Paper beats Scissors';
+	} else if (playerSelection === 'paper' && computerSelection === 'paper') {
+		return 'Even! Paper evens Paper';
+	} else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+		return 'You Win! Scissors beats Paper';
+	} else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+		return 'You Lose! Scissors beats Rock';
+	} else if (
+		playerSelection === 'scissors' &&
+		computerSelection === 'scissors'
+	) {
+		return 'Even! Scissors evens Scissors';
+	} else {
+		return 'Error! Sorry, something happens';
+	}
+}
+
+const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
 
 // Create single playRound function. The function should take two parameters - playerSelection and computerSelection
