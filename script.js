@@ -20,6 +20,18 @@ rockBtn.addEventListener('click', (e) => {
 	resultText.textContent = results;
 	playerScoreDiv.textContent = playerScore;
 	computerScoreDiv.textContent = computerScore;
+
+	if (playerScore === 5) {
+		resultText.textContent = 'You reached 5 points!! You win!!!';
+		playerScore = 0;
+		computerScore = 0;
+	}
+
+	if (computerScore === 5) {
+		resultText.textContent = 'Computer reached 5 points!! You Lose!!!';
+		playerScore = 0;
+		computerScore = 0;
+	}
 });
 
 paperBtn.addEventListener('click', (e) => {
@@ -29,6 +41,18 @@ paperBtn.addEventListener('click', (e) => {
 	resultText.textContent = results;
 	playerScoreDiv.textContent = playerScore;
 	computerScoreDiv.textContent = computerScore;
+
+	if (playerScore === 5) {
+		resultText.textContent = 'You reached 5 points!! You win!!!';
+		playerScore = 0;
+		computerScore = 0;
+	}
+
+	if (computerScore === 5) {
+		resultText.textContent = 'Computer reached 5 points!! You Lose!!!';
+		playerScore = 0;
+		computerScore = 0;
+	}
 });
 
 scissorsBtn.addEventListener('click', (e) => {
@@ -37,7 +61,19 @@ scissorsBtn.addEventListener('click', (e) => {
 	results = playRound(playerChoice, computerChoice);
 	resultText.textContent = results;
 	playerScoreDiv.textContent = playerScore;
-	computerScoreDiv.textContent = computerScore;;
+	computerScoreDiv.textContent = computerScore;
+
+	if (playerScore === 5) {
+		resultText.textContent = 'You reached 5 points!! You win!!!';
+		playerScore = 0;
+		computerScore = 0;
+	}
+
+	if (computerScore === 5) {
+		resultText.textContent = 'Computer reached 5 points!! You Lose!!!';
+		playerScore = 0;
+		computerScore = 0;
+	}
 });
 
 function getRandomNumber() {
@@ -56,10 +92,6 @@ function getComputerChoice() {
 		default:
 			break;
 	}
-}
-
-function getPlayerChoice(playerChoice) {
-	return playerChoice;
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -94,27 +126,3 @@ function playRound(playerSelection, computerSelection) {
 		return;
 	}
 }
-
-// function game() {
-// 	for (let i = 1; i <= 5; i++) {
-// 		const playerSelection = getPlayerChoice();
-// 		const computerSelection = getComputerChoice();
-
-// 		if (playerSelection === undefined) {
-// 			return;
-// 		}
-// 		console.log(playerSelection, computerSelection);
-// 		console.log(playRound(playerSelection, computerSelection));
-// 		console.log(playerScore, computerScore);
-// 	}
-
-// 	if (playerScore > computerScore) {
-// 		return `You Win! You're score: ${playerScore}. Computer score: ${computerScore}`;
-// 	} else if (playerScore < computerScore) {
-// 		return `You Lose! You're score: ${playerScore}. Computer score: ${computerScore}`;
-// 	} else {
-// 		return `Even! You're score: ${playerScore}. Computer score: ${computerScore}`;
-// 	}
-// }
-
-// game();
